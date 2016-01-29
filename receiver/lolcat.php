@@ -2,12 +2,7 @@
 namespace command;
 
 function lolcat() {
-	$search_query = 'lolcat';
-	$html = file_get_html( "https://www.google.com/search?q=$search_query&tbm=isch" );
-	$doc = new DOMDocument();
-	$doc->loadHTML($html);
-	$dom->preserveWhiteSpace = false;
-	$images = $dom->getElementsByTagName('img');
-	$image = array_rand($images);
-	return $image->getAttribute('src');
+	$json = file_get_contents("http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=lolcat");
+	$lolcat = json_decode($json, true);
+	return '<img src="'.$lolcat['data']['image_url'].'" />';
 }
