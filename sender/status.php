@@ -1,6 +1,6 @@
 <?php
-namespace sender;
+namespace command;
 
 function status() {
-	
+	exit('unimplemented sender status');
 }
